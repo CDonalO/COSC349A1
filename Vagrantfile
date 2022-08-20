@@ -22,6 +22,12 @@ Vagrant.configure("2") do |config|
 	webserver.vm.provision "shell", path: "scripts/webserver_script.sh"
   end
 
+  config.vm.define "dbserver" do |dbserver|
+  
+  dbserver.vm.hostname = "dbserver"
+  dbserver.vm.provision "shell", path: "scripts/dbserver_script.sh"
+  end
+
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
