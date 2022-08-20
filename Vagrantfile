@@ -13,6 +13,15 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ubuntu/xenial64"
+  
+  config.vm.define "webserver" do |webserver|
+  
+	webserver.vm.hostname = "webserver"
+	
+	webserver.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+	webserver.vm.provision "shell", path: "scripts/webserver_script.sh"
+  end
+
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
