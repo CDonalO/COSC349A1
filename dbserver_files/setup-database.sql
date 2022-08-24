@@ -37,7 +37,7 @@ CREATE TABLE Users (
 	
 	email varchar(255) not null,
 	
-	password varchar not null,
+	pass_word varchar(255) not null,
 	
 	is_admin bool,
 	
@@ -63,4 +63,4 @@ CREATE TABLE Booking (
 	
 );
 
-INSERT INTO Users (fname,lname,email,password,is_admin) VALUES("Jacob","O'Leary","admin@cooladmin.com","admin",true);
+INSERT INTO Users (fname,lname,email,pass_word,is_admin) VALUES("Jacob","O'Leary","admin@cooladmin.com","admin",true);
