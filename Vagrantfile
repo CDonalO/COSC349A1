@@ -20,6 +20,7 @@ Vagrant.configure("2") do |config|
 	
 	webserver.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
 	webserver.vm.provision "shell", path: "scripts/webserver_script.sh"
+	webserver.vm.network "private_network", ip: "192.168.12.40"
 	webserver.vm.synced_folder "webserver_files", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
   end
   
@@ -29,6 +30,7 @@ Vagrant.configure("2") do |config|
 	
 	adminwebserver.vm.network "forwarded_port", guest: 80, host: 8081, host_ip: "127.0.0.1"
 	adminwebserver.vm.provision "shell", path: "scripts/adminwebserver_script.sh"
+	adminwebserver.vm.network "private_network", ip: "192.168.12.41"
 	adminwebserver.vm.synced_folder "adminwebserver_files", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
   end
 
@@ -36,6 +38,7 @@ Vagrant.configure("2") do |config|
   
   dbserver.vm.hostname = "dbserver"
   dbserver.vm.provision "shell", path: "scripts/dbserver_script.sh"
+  dbserver.vm.network "private_network", ip: "192.168.12.42"
   dbserver.vm.synced_folder "dbserver_files", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
   end
 

@@ -1,0 +1,19 @@
+body {
+    background-color: #36a1ff;
+}
+main {
+    display: block;
+    margin: auto;
+    width: fit-content;
+    background-color: white;
+    padding: 20px;
+}
+form{
+    display: grid;
+}
+label {
+    margin-top: 15px;
+}
+input{
+    display: block;
+}
