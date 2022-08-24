@@ -22,6 +22,15 @@ Vagrant.configure("2") do |config|
 	webserver.vm.provision "shell", path: "scripts/webserver_script.sh"
 	webserver.vm.synced_folder "webserver_files", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
   end
+  
+    config.vm.define "adminwebserver" do |adminwebserver|
+  
+	adminwebserver.vm.hostname = "webserver"
+	
+	adminwebserver.vm.network "forwarded_port", guest: 80, host: 8081, host_ip: "127.0.0.1"
+	adminwebserver.vm.provision "shell", path: "scripts/adminwebserver_script.sh"
+	adminwebserver.vm.synced_folder "adminwebserver_files", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
+  end
 
   config.vm.define "dbserver" do |dbserver|
   
