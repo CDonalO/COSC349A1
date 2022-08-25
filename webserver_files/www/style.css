@@ -1,0 +1,53 @@
+body {
+    background-color: #36a1ff;
+    width: 650px;
+    margin: 0 auto;
+}
+
+header,
+main,
+footer {
+    padding: 10px;
+    margin: 0 0 10px 0;
+    border: 1px solid;
+    border-radius: 0 10px 10px 10px;
+    background-color: #f1EBE4;
+    color: inherit;
+}
+
+header {
+    top: 0;
+    width: inherit;
+    z-index: 100;
+    padding-bottom:20px;
+}
+
+main{
+    width: inherit;
+}
+
+footer {
+    text-align: right;
+    font-size: 14px;
+}
+
+#loginForm label {
+    display: inline-block;
+    width: 75px;
+}
+
+#loginSubmit {
+    float: right;
+}
+
+
+h1 {
+    font-size: 40px;
+    display: inline-block;
+    font-family: Calibri, sans-serif;
+    margin: 0;
+}
+
+#user {
+    float: right;
+}
