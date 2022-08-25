@@ -64,4 +64,5 @@ CREATE TABLE Booking (
 );
 
 INSERT INTO Users (fname,lname,email,pass_word,is_admin) VALUES("Jacob","O'Leary","admin@cooladmin.com","admin",true);
-INSERT INTO Houses
+INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(4,5,6,2,167,20,"Nice warm house with lots of sun","Dunedin","18 Turner St",true);
+INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(3,5,5,1,127,15,"Nice house","Queenstown","112 Joe St",false);
