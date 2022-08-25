@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
   end
   
     config.vm.define "adminwebserver" do |adminwebserver|
-  
+ 
 	adminwebserver.vm.hostname = "webserver"
 	
 	adminwebserver.vm.network "forwarded_port", guest: 80, host: 8081, host_ip: "127.0.0.1"
