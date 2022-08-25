@@ -19,8 +19,8 @@
     <div id="user">
             <div id="login">
                 <form id="loginForm" method="post">
-                    <label for="loginUser">Username: </label>
-                    <input type="text" name="loginUser" id="loginUser"><br>
+                    <label for="loginEmail">Email: </label>
+                    <input type="text" name="loginEmail" id="loginEmail"><br>
                     <label for="loginPassword">Password: </label>
                     <input type="password" name="loginPassword" id="loginPassword"><br>
                     <input type="submit" id="loginSubmit" value="Login">
