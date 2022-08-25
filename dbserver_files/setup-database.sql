@@ -64,3 +64,4 @@ CREATE TABLE Booking (
 );
 
 INSERT INTO Users (fname,lname,email,pass_word,is_admin) VALUES("Jacob","O'Leary","admin@cooladmin.com","admin",true);
+INSERT INTO Houses
