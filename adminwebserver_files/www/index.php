@@ -14,13 +14,12 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $email = $_POST['email'];
     $passwd = $_POST['password'];
-//    $sql = "SELECT * FROM Users where is_admin = TRUE and email = $email and pass_word=$passwd";
-    $sql = "SELECT * FROM Users";
+    $sql = "SELECT * FROM `Users` where `is_admin` = TRUE and email = '$email' and pass_word = '$passwd'";
     $result = $conn->query($sql);
-    print_r($result);
     if ($result->num_rows > 0) {
         $_SESSION["admin"] = true;
-        print_r("nice");
+        header("Location:admin.php");
+        exit();
     }
 }
 ?>
