@@ -88,4 +88,5 @@ INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_f
 
 INSERT INTO Booking (house_id,number_of_people,check_in_date,days,users_id) VALUES(2,1,"2022-5-20",7,1);
 
-INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g6b58c6d58_1920.jpg", 2);
+INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g6b58c6d58_1920.jpg", 7);
+INSERT INTO House_image (path,house_id) VALUES("./images/bedroom-gc76278414_1920.jpg", 7);

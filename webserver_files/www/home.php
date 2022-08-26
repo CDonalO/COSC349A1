@@ -19,12 +19,19 @@ include("header.php");
         $result = $conn->query($sql);
         $obj = $result->fetch_object();
 
+
+
         while($obj != ""){
-            $s = "SELECT * FROM House_image where(house_id =$obj->house_id)";
+            $s = "SELECT * FROM House_image where(house_id = $obj->house_id)";
             $res = $conn->query($s);
-            $o = $res->fetch_object();
             echo "<ul class='house'>";
-//            echo "<li><img src="$o->path" width='240' height='180'></li>";
+            while($o = $res->fetch_assoc()){
+                if($o != ""){
+                    echo "<li><img src=$o[path] width='240' height='180'></li>";
+                }
+            }
+
+
             echo "<li> $obj->bedrooms bedrooms</li>";
             echo "<li>$obj->beds beds</li>";
             echo "<li>$obj->guest_limit guest maximum</li>";
@@ -35,6 +42,7 @@ include("header.php");
             echo "<li>Located at $obj->address, $obj->city $obj->country</li>";
             echo "</ul>";
             $obj = $result->fetch_object();
+            $o = $res->fetch_object();
         }
 
         ?>
