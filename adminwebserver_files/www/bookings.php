@@ -1,5 +1,9 @@
 <?php
 session_start();
+if ($_SESSION["admin"] != true){
+    header("Location:index.php");
+    exit();
+}
 
 $servername = "192.168.12.42";
 $username = "adminprivilege";
@@ -23,10 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 $id = $_SESSION["selectedId"];
 $sql_house = "SELECT * FROM `Houses` where `house_id` = '$id'";
-$sql_bookings = "SELECT * FROM `Booking` where `booking.house_id` = '$id' INNER JOIN `Users` ON `Booking.users_id` = `Users.users.id`";
+$sql_bookings = "SELECT * FROM Booking b INNER JOIN Users u ON b.users_id = u.users_id where b.house_id = '$id' ORDER BY b.check_in_date";
 $result_house = $conn->query($sql_house);
 $result_bookings = $conn->query($sql_bookings);
-print_r($result_bookings)
+
+function formatDate($str){
+    $str_arr = preg_split("/-/",$str);
+    return $str_arr[2] . "-" . $str_arr[1] . "-" . $str_arr[0];
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -51,8 +59,12 @@ print_r($result_bookings)
                 echo "<ul>";
                 echo "<li>" .$row["address"]. ", ". $row["city"]. ", ". $row["country"]. "</li>";
                 while($booking = $result_bookings->fetch_assoc()){
-                    echo "<ul>";
-                    echo "<li>" . $booking["check_in_date"]. "</li>";
+                    echo "<ul class='indentWhole'>";
+                    echo "<li>" . "Check in date: " .formatDate($booking["check_in_date"]). "</li>";
+                    echo "<li>" . "Days: " . $booking["days"] . "</li>";
+                    echo "<li>" . "Guests: " . $booking["number_of_people"] . "</li>";
+                    echo "<li>" . "Booked by: " .$booking["fname"] ." " .$booking["lname"]."</li>";
+                    echo "<li>" . "Email: " . $booking["email"] . "</li>";
                     echo "<li>" . "Delete: "."<input type='checkbox' onclick='addHouseToCookie(".$row["house_id"].',"bdelete"'.")'>"."</li>";
                     echo "</ul>";
                 }

@@ -1,9 +1,9 @@
 <?php
 session_start();
-//if ($_SESSION["admin"] != true){
-//    header("Location:index.php");
-//    exit();
-//}
+if ($_SESSION["admin"] != true){
+    header("Location:index.php");
+    exit();
+}
 
 $servername = "192.168.12.42";
 $username = "adminprivilege";
@@ -58,11 +58,11 @@ $result_not_approved = $conn->query($sql_not_approved);
     <main>
         <h1>Skybnb admin panel</h1>
         <form action="admin.php" method="post">
-    <ul>
+    <ul class="col-split1">
         <li class="clickable dropdown"><p>&#11167;</p> Unapproved houses</li>
         <?php
             while($row = $result_not_approved->fetch_assoc()) {
-                echo "<ul class='box'>";
+                echo "<ul class='box indent'>";
                 echo "<li class='clickable dropdown'><p>&#11167;</p>" .$row["address"]. ", ". $row["city"]. ", ". $row["country"]. "</li>";
                 echo "<li>" . $row["bedrooms"]. " bedrooms". "</li>";
                 echo "<li>" . $row["beds"]. " beds". "</li>";
@@ -77,11 +77,11 @@ $result_not_approved = $conn->query($sql_not_approved);
             ?>
         <li><input type="submit" value="Approve selected" name="approve"></li>
     </ul>
-        <ul>
+        <ul class="col-split2">
         <li class="clickable dropdown"><p>&#11167;</p> Approved houses</li>
         <?php
             while($row = $result_approved->fetch_assoc()) {
-                echo "<ul class='box'>";
+                echo "<ul class='box indent'>";
                 echo "<li class='clickable dropdown'><p>&#11167;</p>" .$row["address"]. ", ". $row["city"]. ", ". $row["country"]. "</li>";
                 echo "<li>" . $row["bedrooms"]. " bedrooms". "</li>";
                 echo "<li>" . $row["beds"]. " beds". "</li>";

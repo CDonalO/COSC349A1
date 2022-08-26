@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $servername = "192.168.12.42";
 $username = "adminprivilege";
 $password = "password1239";
