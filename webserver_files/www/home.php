@@ -18,9 +18,13 @@ include("header.php");
         $sql = "SELECT * FROM Houses where(approved='false')";
         $result = $conn->query($sql);
         $obj = $result->fetch_object();
+
         while($obj != ""){
+            $s = "SELECT * FROM House_image where(house_id =$obj->house_id)";
+            $res = $conn->query($s);
+            $o = $res->fetch_object();
             echo "<ul class='house'>";
-//            echo "<li><img src="$obj->image" width='240' height='180'></li>";
+//            echo "<li><img src="$o->path" width='240' height='180'></li>";
             echo "<li> $obj->bedrooms bedrooms</li>";
             echo "<li>$obj->beds beds</li>";
             echo "<li>$obj->guest_limit guest maximum</li>";

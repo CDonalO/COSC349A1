@@ -49,6 +49,8 @@ CREATE TABLE Booking (
 	booking_id int(255) AUTO_INCREMENT,
 	
 	house_id int(255),
+
+	number_of_people int(255) not null,
 	
 	check_in_date date not null,
 	
@@ -64,6 +66,13 @@ CREATE TABLE Booking (
 	
 );
 
+CREATE TABLE House_image (
+    path varchar(255),
+    house_id int(255),
+    PRIMARY KEY (path),
+    FOREIGN KEY (house_id) references Houses(house_id)
+);
+
 INSERT INTO Users (fname,lname,email,pass_word,is_admin) VALUES("Jacob","O'Leary","admin@cooladmin.com","admin",true);
 INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(4,5,6,2,167.00,20,"Nice warm house with lots of sun","Dunedin","New Zealand","18 Turner St",true);
 INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(5,10,15,1,136,26,"lovely location with shops nearby","Cape Town","USA","318 Stuart St",true);
@@ -77,4 +86,6 @@ INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_f
 INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(5,5,7,3,196,39,"warm house with free wifi","Dunedin","Australia","124 Cherry St",false);
 INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(3,5,5,1,127.00,15,"Nice house","Queenstown","Australia","112 Joe St",false);
 
-INSERT INTO Booking (house_id,check_in_date,days,users_id) VALUES(2,"2022-5-20",7,1);
+INSERT INTO Booking (house_id,number_of_people,check_in_date,days,users_id) VALUES(2,1,"2022-5-20",7,1);
+
+INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g6b58c6d58_1920.jpg", 2);
