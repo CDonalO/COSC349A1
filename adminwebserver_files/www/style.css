@@ -3,10 +3,14 @@ body {
 }
 main {
     display: block;
-    margin: auto;
+    margin:   50px auto auto auto;
     width: fit-content;
     background-color: white;
-    padding: 20px;
+    padding: 30px;
+    box-shadow: 6px 6px 14px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 6px 6px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 14px 0px rgba(0,0,0,0.75);
+    border-radius: 8px;
 }
 form{
     display: grid;

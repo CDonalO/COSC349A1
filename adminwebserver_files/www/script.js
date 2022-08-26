@@ -48,12 +48,19 @@ function hideSiblings(){
     }
     result.forEach(element => {if(element.style.display==="none"){
         element.style.display="block";
+        this.children[0].innerHTML = "&#11167;";
+
     } else {
         element.style.display="none";
+        this.children[0].innerHTML = "&#10148;";
     }});
 }
 window.onload = function() {
-    document.getElementById("unapproved_list").addEventListener("click", hideSiblings);
-    document.getElementById("approved_list").addEventListener("click", hideSiblings);
+    let elements = document.getElementsByClassName("dropdown")
+    for(let i =0; i < elements.length;i++){
+        elements[i].addEventListener("click", hideSiblings);
+    }
+    // document.getElementById("unapproved_list").addEventListener("click", hideSiblings);
+    // document.getElementById("approved_list").addEventListener("click", hideSiblings);
 }
 

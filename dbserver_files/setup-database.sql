@@ -76,3 +76,5 @@ INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_f
 INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(1,2,3,2,176,36,"lovely location with shops nearby","Cape Town","USA","456 Cherry St",false);
 INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(5,5,7,3,196,39,"warm house with free wifi","Dunedin","Australia","124 Cherry St",false);
 INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(3,5,5,1,127.00,15,"Nice house","Queenstown","Australia","112 Joe St",false);
+
+INSERT INTO Booking (house_id,check_in_date,days,users_id) VALUES(2,"2022-5-20",7,1);

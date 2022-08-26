@@ -1,4 +1,5 @@
 <?php
+session_start();
 //if ($_SESSION["admin"] != true){
 //    header("Location:index.php");
 //    exit();
@@ -31,6 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $conn->query($sqlh);
         }
         unset($_COOKIE['delete']);
+    } elseif (isset($_POST["booking"])){
+        $_SESSION["selectedId"] = $_POST["booking"];
+        header("Location:bookings.php");
     }
 }
 $sql_approved = "SELECT * FROM `Houses` where `approved` = TRUE";
@@ -55,11 +59,11 @@ $result_not_approved = $conn->query($sql_not_approved);
         <h1>Skybnb admin panel</h1>
         <form action="admin.php" method="post">
     <ul>
-        <li id="unapproved_list">Unapproved houses</li>
+        <li class="clickable dropdown"><p>&#11167;</p> Unapproved houses</li>
         <?php
             while($row = $result_not_approved->fetch_assoc()) {
-                echo "<ul>";
-                echo "<li>" .$row["address"]. ", ". $row["city"]. ", ". $row["country"]. "</li>";
+                echo "<ul class='box'>";
+                echo "<li class='clickable dropdown'><p>&#11167;</p>" .$row["address"]. ", ". $row["city"]. ", ". $row["country"]. "</li>";
                 echo "<li>" . $row["bedrooms"]. " bedrooms". "</li>";
                 echo "<li>" . $row["beds"]. " beds". "</li>";
                 echo "<li>" . $row["bathrooms"]. " bathrooms". "</li>";
@@ -74,11 +78,11 @@ $result_not_approved = $conn->query($sql_not_approved);
         <li><input type="submit" value="Approve selected" name="approve"></li>
     </ul>
         <ul>
-        <li id="approved_list">Approved houses</li>
+        <li class="clickable dropdown"><p>&#11167;</p> Approved houses</li>
         <?php
             while($row = $result_approved->fetch_assoc()) {
-                echo "<ul>";
-                echo "<li>" .$row["address"]. ", ". $row["city"]. ", ". $row["country"]. "</li>";
+                echo "<ul class='box'>";
+                echo "<li class='clickable dropdown'><p>&#11167;</p>" .$row["address"]. ", ". $row["city"]. ", ". $row["country"]. "</li>";
                 echo "<li>" . $row["bedrooms"]. " bedrooms". "</li>";
                 echo "<li>" . $row["beds"]. " beds". "</li>";
                 echo "<li>" . $row["bathrooms"]. " bathrooms". "</li>";
@@ -86,6 +90,7 @@ $result_not_approved = $conn->query($sql_not_approved);
                 echo "<li>" ."$" . $row["price_per_day"]. " per day". "</li>";
                 echo "<li>" ."$" . $row["cleaning_fee"]. " cleaning fee". "</li>";
                 echo "<li>" . $row["description"]. "</li>";
+                echo "<li>" . "<button type='submit' value='".$row["house_id"]."' name='booking'>Show Bookings</button>" . "</li>";
                 echo "<li>" . "Delete: "."<input type='checkbox' onclick='addHouseToCookie(".$row["house_id"].',"delete"'.")'>"."</li>";
                 echo "</ul>";
             }

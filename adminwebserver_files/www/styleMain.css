@@ -20,3 +20,30 @@ main {
     width: 80%;
     margin: auto;
 }
+ul{
+    padding: 20px 5px 20px 5px;
+    list-style: none;
+}
+
+.clickable {
+    cursor: pointer;
+    user-select: none;
+}
+
+li p {
+    display: inline;
+}
+
+ul li:not(:first-child):not(:last-child) {
+    margin-left: 15px;
+}
+
+.box {
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    box-shadow: 6px 6px 14px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 6px 6px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 14px 0px rgba(0,0,0,0.75);
+}
