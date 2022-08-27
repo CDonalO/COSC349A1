@@ -13,25 +13,28 @@ if ($conn->connect_error) {
 include("header.php");
 ?>
 
+
     <main>
         <?php
         $sql = "SELECT * FROM Houses where(approved='false')";
         $result = $conn->query($sql);
         $obj = $result->fetch_object();
-
-
-
-        while($obj != ""){
+        $count = 0;
+        while ($obj != "") {
             $s = "SELECT * FROM House_image where(house_id = $obj->house_id)";
             $res = $conn->query($s);
             echo "<ul class='house'>";
-            while($o = $res->fetch_assoc()){
-                if($o != ""){
-                    echo "<li><img src=$o[path] width='240' height='180'></li>";
+            echo "<li><h3>$obj->address</h3></li>";
+            echo "<div class='container' id='$count'>";
+            $c = 0;
+            while ($o = $res->fetch_assoc()) {
+                if ($o != "") {
+                    echo "<li><div class='slide fade'><img class='$c' src=$o[path] width='360' height='240'></div></li>";
+                    $c+=1;
                 }
             }
-
-
+            echo "<a class='prev' onclick='plusSlides(-1,$count)'>&#10094;</a>";
+            echo "<a class='next' onclick='plusSlides(1,$count)'>&#10095;</a></div>";
             echo "<li> $obj->bedrooms bedrooms</li>";
             echo "<li>$obj->beds beds</li>";
             echo "<li>$obj->guest_limit guest maximum</li>";
@@ -39,14 +42,16 @@ include("header.php");
             echo "<li>$$obj->price_per_day per day</li>";
             echo "<li>$$obj->cleaning_fee for cleaning</li>";
             echo "<li>$obj->description</li>";
-            echo "<li>Located at $obj->address, $obj->city $obj->country</li>";
+            echo "<li>$obj->city $obj->country</li>";
             echo "</ul>";
             $obj = $result->fetch_object();
             $o = $res->fetch_object();
+            $count ++;
         }
 
         ?>
     </main>
+    <script src="slideshow.js"></script>
 <?php
 include("footer.php");
 ?>

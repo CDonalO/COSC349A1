@@ -90,3 +90,5 @@ INSERT INTO Booking (house_id,number_of_people,check_in_date,days,users_id) VALU
 
 INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g6b58c6d58_1920.jpg", 7);
 INSERT INTO House_image (path,house_id) VALUES("./images/bedroom-gc76278414_1920.jpg", 7);
+INSERT INTO House_image (path,house_id) VALUES("./images/bedroom-g4bf08c263_1920.jpg", 6);
+INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g69828d0cc_1920.jpg", 6);
