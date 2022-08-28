@@ -92,3 +92,9 @@ INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g6b58c6d58_192
 INSERT INTO House_image (path,house_id) VALUES("./images/bedroom-gc76278414_1920.jpg", 7);
 INSERT INTO House_image (path,house_id) VALUES("./images/bedroom-g4bf08c263_1920.jpg", 6);
 INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g69828d0cc_1920.jpg", 6);
+INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-gf6f2b9d4c_1920.jpg", 8);
+INSERT INTO House_image (path,house_id) VALUES("./images/apartment-g548acd0ce_1920.jpg", 8);
+INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g4222b30c1_1920.jpg", 9);
+INSERT INTO House_image (path,house_id) VALUES("./images/bed-gb47da91a6_1920.jpg", 9);
+INSERT INTO House_image (path,house_id) VALUES("./images/hotel-g9bbf3aad8_1920.jpg", 10);
+INSERT INTO House_image (path,house_id) VALUES("./images/bedroom-g1a335da0d_1920.jpg", 10);

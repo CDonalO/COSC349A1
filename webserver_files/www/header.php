@@ -18,12 +18,15 @@
 
     <div id="user">
             <div id="login">
-                <form id="loginForm" method="post">
-                    <label for="loginEmail">Email: </label>
-                    <input type="text" name="loginEmail" id="loginEmail"><br>
-                    <label for="loginPassword">Password: </label>
-                    <input type="password" name="loginPassword" id="loginPassword"><br>
-                    <input type="submit" id="loginSubmit" value="Login">
+                <form id="loginForm" action="login.php" method="post">
+<!--                    <label for="loginEmail">Email: </label>-->
+<!--                    <input type="text" name="loginEmail" id="loginEmail"><br>-->
+<!--                    <label for="loginPassword">Password: </label>-->
+<!--                    <input type="password" name="loginPassword" id="loginPassword"><br>-->
+                    <input type="submit" id="loginSubmit" value="Sign in">
+                </form>
+                <form id="accountForm" action="createAccount.php" method="post">
+                    <input type="submit" id="createAccount" value="Create Account">
                 </form>
             </div>
     </div>

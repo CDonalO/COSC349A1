@@ -12,8 +12,6 @@ if ($conn->connect_error) {
 
 include("header.php");
 ?>
-
-
     <main>
         <?php
         $sql = "SELECT * FROM Houses where(approved='false')";
@@ -42,7 +40,7 @@ include("header.php");
             echo "<li>$$obj->price_per_day per day</li>";
             echo "<li>$$obj->cleaning_fee for cleaning</li>";
             echo "<li>$obj->description</li>";
-            echo "<li>$obj->city $obj->country</li>";
+            echo "<li>$obj->city, $obj->country</li>";
             echo "</ul>";
             $obj = $result->fetch_object();
             $o = $res->fetch_object();
