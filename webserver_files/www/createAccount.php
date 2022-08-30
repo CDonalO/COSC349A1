@@ -33,7 +33,7 @@ include("header.php");
                     $lname = $_POST["lName"];
                     $email = $_POST["Email"];
                     $password = $_POST["Password1"];
-                    $sql = "INSERT INTO Users (fname,lname,email,pass_word,is_admin) VALUES('$fname','$lname','$email','$password',false);";
+                    $sql = "INSERT INTO Users (fname,lname,email,pass_word,is_admin) VALUES('$fname','$lname','$email','$password',false)";
                     $result = $conn->query($sql);
                     header('Location:' . 'home.php');
                     exit;
@@ -47,7 +47,7 @@ include("header.php");
         }
         ?>
 
-        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
+        <form id="createForm" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
               enctype="multipart/form-data">
             <h2>Create your new account.</h2>
             <p>All fields are required.</p>
@@ -72,7 +72,7 @@ include("header.php");
                 </li>
             </ul>
             <p class="buttonSet">
-                <input type="submit" name="create" value="Create Account"/></p>
+                <input id="createButton" type="submit" name="create" value="Create Account"/></p>
         </form>
 
     </main>

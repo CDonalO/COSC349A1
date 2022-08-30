@@ -1,3 +1,9 @@
+<?php
+if (session_id() === "") {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -17,18 +23,26 @@
     <h1>SkyBNB</h1>
 
     <div id="user">
+        <?php if (isset($_SESSION['authenticatedUser'])) {
+        $name = $_SESSION['authenticatedUser'];
+        ?>
+            <div id="logout">
+                <form id="logoutForm" action="logout.php" method="post">
+                    <?php echo "<p> Welcome, " . $name . "<span id='logoutUser'></span></p>" ?>
+                    <input type="submit" id="logoutSubmit" value="Logout">
+                </form>
+            </div>
+        <?php } else { ?>
             <div id="login">
                 <form id="loginForm" action="login.php" method="post">
-<!--                    <label for="loginEmail">Email: </label>-->
-<!--                    <input type="text" name="loginEmail" id="loginEmail"><br>-->
-<!--                    <label for="loginPassword">Password: </label>-->
-<!--                    <input type="password" name="loginPassword" id="loginPassword"><br>-->
                     <input type="submit" id="loginSubmit" value="Sign in">
                 </form>
                 <form id="accountForm" action="createAccount.php" method="post">
                     <input type="submit" id="createAccount" value="Create Account">
                 </form>
             </div>
+        <?php } ?>
     </div>
+
 
 </header>

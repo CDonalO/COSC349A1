@@ -33,10 +33,39 @@ footer {
     width: 75px;
 }
 
-#loginSubmit {
-    float: right;
+#createForm label {
+    display: inline-block;
+    width: 200px;
 }
 
+#createButton {
+    width: 100px;
+}
+
+#createForm input {
+    display: inline-block;
+    width: 200px;
+}
+#createForm li {
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+#loginSubmit {
+    /*float: right;*/
+    display: inline-block;
+}
+
+#logoutSubmit {
+    float: right;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+#logout p{
+    /*display: none;*/
+    display: inline-block;
+}
 
 h1 {
     font-size: 40px;
