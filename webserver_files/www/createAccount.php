@@ -49,7 +49,8 @@ include("header.php");
 
         <form id="createForm" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
               enctype="multipart/form-data">
-            <h2>Create your new account.</h2>
+            <h2>Create an account.</h2>
+            <p>You be signed into an account if you wish to book a house.</p>
             <p>All fields are required.</p>
             <?php
             if (!empty($errMsg)) {
