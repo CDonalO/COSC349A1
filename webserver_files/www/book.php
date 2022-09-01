@@ -2,6 +2,8 @@
 if (session_id() === "") {
     session_start();
 }
+$temp = basename($_SERVER['PHP_SELF']);
+
 $servername = "192.168.12.42";
 $username = "adminprivilege";
 $password = "password1239";
@@ -62,6 +64,7 @@ include("header.php");
                 header('Location:' . 'createAccount.php');
                 exit;
             }
+            $user_id = $_SESSION['authenticatedUserId'];
             $d1 = new DateTime($_POST["checkIn"]);
             $d2 = new DateTime($_POST["checkOut"]);
             $today = new DateTime();
@@ -69,6 +72,19 @@ include("header.php");
                 $errMsg .= "<p class='err'>checkout date must be after the check in date.</p>";
             } else if($d1 < $today){
                 print_r("check in date must be tomorrow or farther in the future.");
+            }
+            $num_days = $d2->diff($d1)->format("%a");
+            $num_people = $_POST['numPeople'];
+            $arriveDate = $d1->format('Y,m,d');
+            if($errMsg == ""){
+                $bookSql = "INSERT INTO Booking (house_id,number_of_people,check_in_date,days,users_id) VALUES('$obj->house_id','$num_people','$arriveDate','$num_days','$user_id')";
+                $bookResult = $conn->query($bookSql);
+                $d = "SELECT * FROM Booking";
+                $dres = $conn->query($d);
+                $abc = $dres->fetch_object();
+                $ab = $dres->fetch_object();
+                header('Location:' . 'home.php');
+                exit;
             }
 
             foreach ($_POST as $key => $value) {

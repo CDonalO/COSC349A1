@@ -1,4 +1,5 @@
 <?php
+$currentPage = basename($_SERVER['PHP_SELF']);
 $servername = "192.168.12.42";
 $username = "adminprivilege";
 $password = "password1239";
@@ -50,7 +51,7 @@ include("header.php");
         <form id="createForm" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
               enctype="multipart/form-data">
             <h2>Create an account.</h2>
-            <p>You be signed into an account if you wish to book a house.</p>
+            <p>You must be signed into an account if you wish to book a house.</p>
             <p>All fields are required.</p>
             <?php
             if (!empty($errMsg)) {
@@ -74,6 +75,7 @@ include("header.php");
             </ul>
             <p class="buttonSet">
                 <input id="createButton" type="submit" name="create" value="Create Account"/></p>
+            <p>If you already have an account you can <a href="login.php">sign in instead.</a></p>
         </form>
 
     </main>

@@ -2,6 +2,16 @@
 if (session_id() === "") {
     session_start();
 }
+$temp = basename($_SERVER['PHP_SELF']);
+if ($temp != 'logout.php') {
+    $_SESSION['lastPage'] = $_SERVER['PHP_SELF'];
+}
+if(isset($_SESSION['authenticatedUser'])){
+    if($temp == 'login.php' || $temp == 'createAccount.php' ){
+        header('Location:' . 'home.php');
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,5 +54,22 @@ if (session_id() === "") {
         <?php } ?>
     </div>
 
+    <nav>
+
+        <ul>
+            <?php
+            // navigation links to other pages
+            if(!isset($currentPage)){
+                $currentPage = '';
+            }
+            if ($currentPage === 'home.php') {
+                echo "<li>Home</li>";
+            } else{
+                echo "<li> <a href='home.php'>Home</a>";
+            }
+            ?>
+
+        </ul>
+    </nav>
 
 </header>

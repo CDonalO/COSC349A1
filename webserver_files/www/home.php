@@ -2,6 +2,8 @@
 if (session_id() === "") {
     session_start();
 }
+$currentPage = basename($_SERVER['PHP_SELF']);
+
 $servername = "192.168.12.42";
 $username = "adminprivilege";
 $password = "password1239";
@@ -27,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <form action="home.php" method="post">
             <?php
-            $sql = "SELECT * FROM Houses where(approved='false')";
+            $sql = "SELECT * FROM Houses where(approved=true)";
             $result = $conn->query($sql);
             $obj = $result->fetch_object();
             $count = 0;

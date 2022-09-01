@@ -1,4 +1,5 @@
 <?php
+$currentPage = basename($_SERVER['PHP_SELF']);
 $servername = "192.168.12.42";
 $username = "adminprivilege";
 $password = "password1239";
@@ -25,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 //        print_r("aaaaa");
     }else{
         $a = $result->fetch_object();
+        $_SESSION['authenticatedUserId'] = $a->users_id;
         $_SESSION['authenticatedUser'] = $a->fname;
         header('Location:' . 'home.php');
         exit;
@@ -49,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <form id="accountForm" action="createAccount.php" method="post">
-            <input type="submit" id="createAccount" value="Create Account">
+            <input type="submit" id="createAccount1" value="Create Account">
         </form>
 
     </main>

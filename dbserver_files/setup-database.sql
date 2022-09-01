@@ -74,7 +74,7 @@ CREATE TABLE House_image (
 );
 
 INSERT INTO Users (fname,lname,email,pass_word,is_admin) VALUES("Jacob","O'Leary","admin@cooladmin.com","admin",true);
-INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(4,5,6,2,167.00,20,"Nice warm house with lots of sun","Dunedin","New Zealand","18 Turner St",true);
+INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(4,5,6,2,167.00,20,"Nice warm house with lots of sun","Dunedin","New Zealand","26 Garfield St",true);
 INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(5,10,15,1,136,26,"lovely location with shops nearby","Cape Town","USA","318 Stuart St",true);
 INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(3,6,9,1,176,30,"great place to get away to","London","Italy","349 Stuart St",true);
 INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_fee,description,city,country,address,approved) VALUES(3,6,9,2,186,30,"a house with a bed and bathroom :)","Dunedin","USA","59 Union St",true);
@@ -88,13 +88,13 @@ INSERT INTO Houses (bedrooms,beds,guest_limit,bathrooms,price_per_day,cleaning_f
 
 INSERT INTO Booking (house_id,number_of_people,check_in_date,days,users_id) VALUES(2,1,"2022-5-20",7,1);
 
-INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g6b58c6d58_1920.jpg", 7);
-INSERT INTO House_image (path,house_id) VALUES("./images/bedroom-gc76278414_1920.jpg", 7);
-INSERT INTO House_image (path,house_id) VALUES("./images/bedroom-g4bf08c263_1920.jpg", 6);
-INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g69828d0cc_1920.jpg", 6);
-INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-gf6f2b9d4c_1920.jpg", 8);
-INSERT INTO House_image (path,house_id) VALUES("./images/apartment-g548acd0ce_1920.jpg", 8);
-INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g4222b30c1_1920.jpg", 9);
-INSERT INTO House_image (path,house_id) VALUES("./images/bed-gb47da91a6_1920.jpg", 9);
-INSERT INTO House_image (path,house_id) VALUES("./images/hotel-g9bbf3aad8_1920.jpg", 10);
-INSERT INTO House_image (path,house_id) VALUES("./images/bedroom-g1a335da0d_1920.jpg", 10);
+INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g6b58c6d58_1920.jpg", 1);
+INSERT INTO House_image (path,house_id) VALUES("./images/bedroom-gc76278414_1920.jpg", 1);
+INSERT INTO House_image (path,house_id) VALUES("./images/bedroom-g4bf08c263_1920.jpg", 2);
+INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g69828d0cc_1920.jpg", 2);
+INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-gf6f2b9d4c_1920.jpg", 3);
+INSERT INTO House_image (path,house_id) VALUES("./images/apartment-g548acd0ce_1920.jpg", 3);
+INSERT INTO House_image (path,house_id) VALUES("./images/bathroom-g4222b30c1_1920.jpg", 4);
+INSERT INTO House_image (path,house_id) VALUES("./images/bed-gb47da91a6_1920.jpg", 4);
+INSERT INTO House_image (path,house_id) VALUES("./images/hotel-g9bbf3aad8_1920.jpg", 5);
+INSERT INTO House_image (path,house_id) VALUES("./images/bedroom-g1a335da0d_1920.jpg", 5);
