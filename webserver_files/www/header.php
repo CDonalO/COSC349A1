@@ -42,15 +42,6 @@ if(isset($_SESSION['authenticatedUser'])){
                     <input type="submit" id="logoutSubmit" value="Logout">
                 </form>
             </div>
-        <?php } else { ?>
-            <div id="login">
-                <form id="loginForm" action="login.php" method="post">
-                    <input type="submit" id="loginSubmit" value="Sign in">
-                </form>
-                <form id="accountForm" action="createAccount.php" method="post">
-                    <input type="submit" id="createAccount" value="Create Account">
-                </form>
-            </div>
         <?php } ?>
     </div>
 
@@ -66,6 +57,22 @@ if(isset($_SESSION['authenticatedUser'])){
                 echo "<li>Home</li>";
             } else{
                 echo "<li> <a href='home.php'>Home</a>";
+            }
+            if ($currentPage === 'createHouse.php') {
+                echo "<li>Submit a House</li>";
+            } else{
+                echo "<li> <a href='createHouse.php'>Submit a House</a>";
+            }if (!isset($_SESSION['authenticatedUser'])) {
+                if ($currentPage === 'createAccount.php') {
+                    echo "<li>Create Account</li>";
+                } else{
+                    echo "<li> <a href='createAccount.php'>Create Account</a>";
+                }
+                if ($currentPage === 'login.php') {
+                    echo "<li>Login</li>";
+                } else{
+                    echo "<li> <a href='login.php'>Login</a>";
+                }
             }
             ?>
 
