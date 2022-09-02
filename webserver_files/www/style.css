@@ -39,16 +39,26 @@ footer {
 }
 
 #createButton {
-    width: 100px;
+    width: 150px;
 }
 
-#createForm input {
+.formInput {
     display: inline-block;
     width: 200px;
+}
+
+.descriptionInput{
+    display: inline-block;
+    width: 500px;
 }
 #createForm li {
     list-style-type: none;
     margin-bottom: 20px;
+}
+
+#houseButton{
+    width: 100px;
+    margin-left: 40px;
 }
 
 #loginSubmit {
@@ -152,6 +162,8 @@ nav li {
     display: inline-block;
     margin: 0 20px 0 0;
 }
+
+
 
 nav li a {
     display: block;

@@ -61,15 +61,15 @@ include("header.php");
             }
             ?>
             <ul id="userInfoList">
-                <li><label>First Name: <input type="text" name="fName" maxlength="30"
+                <li><label>First Name: <input class="formInput" type="text" name="fName" maxlength="30"
                                               value="<?php echo $display['fName']; ?>" required/></label></li>
-                <li><label>Last Name: <input type="text" name="lName" maxlength="30"
+                <li><label>Last Name: <input class="formInput" type="text" name="lName" maxlength="30"
                                              value="<?php echo $display['lName']; ?>" required/></label></li>
-                <li><label>Email Address: <input type="email" name="Email" maxlength="40"
+                <li><label>Email Address: <input class="formInput" type="email" name="Email" maxlength="40"
                                                  value="<?php echo $display['Email']; ?>" required/></label></li>
-                <li><label>Password: <input type="password" name="Password1" maxlength="40"
+                <li><label>Password: <input class="formInput" type="password" name="Password1" maxlength="40"
                                             value="<?php echo $display['Password1']; ?>" required/></label></li>
-                <li><label>Confirm Password: <input type="password" name="Password2" maxlength="40"
+                <li><label>Confirm Password: <input class="formInput" type="password" name="Password2" maxlength="40"
                                                     value="<?php echo $display['Password2']; ?>" required/></label>
                 </li>
             </ul>
