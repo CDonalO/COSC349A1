@@ -2,13 +2,12 @@
 if (session_id() === "") {
     session_start();
 }
-$currentPage = basename($_SERVER['PHP_SELF']);
-
+/* set up variables to be used when connecting to the database */
 $servername = "192.168.12.42";
 $username = "adminprivilege";
 $password = "password1239";
 $dbname = "skybnb";
-
+/* connect to the database */
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
@@ -16,7 +15,9 @@ if ($conn->connect_error) {
 }
 
 include("header.php");
-
+/* sets a session variable containing the id of the
+ * selected house to book and navigates to the booking page
+ */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     print_r("aa");
     if (isset($_POST["book"])) {
@@ -29,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <form action="home.php" method="post">
             <?php
+            /* gets all approved houses */
             $sql = "SELECT * FROM Houses where(approved=true)";
             $result = $conn->query($sql);
             $obj = $result->fetch_object();
@@ -40,6 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<li><h3>$obj->address</h3></li>";
                 echo "<div class='container' id='$count'>";
                 $c = 0;
+
+                /* displays the images associated with each house */
                 while ($o = $res->fetch_assoc()) {
                     if ($o != "") {
                         echo "<li><div class='slide fade'><img class='$c' src=$o[path] width='360' height='240'></div></li>";

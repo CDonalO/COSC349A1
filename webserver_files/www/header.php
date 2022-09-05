@@ -2,10 +2,12 @@
 if (session_id() === "") {
     session_start();
 }
+/* sets the last page variable for any page that's not the logout page as it shouldn't be redirected to*/
 $temp = basename($_SERVER['PHP_SELF']);
 if ($temp != 'logout.php') {
     $_SESSION['lastPage'] = $_SERVER['PHP_SELF'];
 }
+/* if the user is logged in and tries to access the createAccount of login page they will be redirected. */
 if(isset($_SESSION['authenticatedUser'])){
     if($temp == 'login.php' || $temp == 'createAccount.php' ){
         header('Location:' . 'home.php');
@@ -33,8 +35,10 @@ if(isset($_SESSION['authenticatedUser'])){
     <h1>SkyBNB</h1>
 
     <div id="user">
-        <?php if (isset($_SESSION['authenticatedUser'])) {
-        $name = $_SESSION['authenticatedUser'];
+        <?php
+        /* displays the logout form if the user is logged in */
+        if (isset($_SESSION['authenticatedUser'])) {
+            $name = $_SESSION['authenticatedUser'];
         ?>
             <div id="logout">
                 <form id="logoutForm" action="logout.php" method="post">
@@ -49,7 +53,7 @@ if(isset($_SESSION['authenticatedUser'])){
 
         <ul>
             <?php
-            // navigation links to other pages
+            /* navigation links to other pages */
             if(!isset($currentPage)){
                 $currentPage = '';
             }
@@ -62,7 +66,9 @@ if(isset($_SESSION['authenticatedUser'])){
                 echo "<li>Submit a House</li>";
             } else{
                 echo "<li> <a href='createHouse.php'>Submit a House</a>";
-            }if (!isset($_SESSION['authenticatedUser'])) {
+            }
+            /* if the user is not logged in, the login and createAccount nav links are displayed */
+            if (!isset($_SESSION['authenticatedUser'])) {
                 if ($currentPage === 'createAccount.php') {
                     echo "<li>Create Account</li>";
                 } else{

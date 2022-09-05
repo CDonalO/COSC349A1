@@ -1,5 +1,4 @@
 <?php
-$currentPage = basename($_SERVER['PHP_SELF']);
 $servername = "192.168.12.42";
 $username = "adminprivilege";
 $password = "password1239";
@@ -24,7 +23,7 @@ include("header.php");
             'Password1' => '',
             'Password2' => ''
         );
-        // Check if the POST request has been sent
+        /* takes user input and partially validates it and creates and pushes a new user to the database */
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["create"])) {
                 if ($_POST["Password1"] != $_POST["Password2"]) {

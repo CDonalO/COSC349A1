@@ -15,7 +15,7 @@ function plusSlides(n, count) {
     }
     showSlides( c += n, count, c);
 }
-
+/* displays the slide relevant to the input */
 function showSlides(n, count,c) {
     let i;
     let a = document.getElementById(count);

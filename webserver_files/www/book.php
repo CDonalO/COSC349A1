@@ -2,19 +2,18 @@
 if (session_id() === "") {
     session_start();
 }
-$temp = basename($_SERVER['PHP_SELF']);
-
+//set up variables to be used when connecting to the database
 $servername = "192.168.12.42";
 $username = "adminprivilege";
 $password = "password1239";
 $dbname = "skybnb";
-
+/* connect to the database */
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     print_r("Error");
 }
-
+/* gets the house selected from the home page. */
 $id = $_SESSION["houseId"];
 $sql = "SELECT * FROM `Houses` where `house_id` = '$id'";
 $result = $conn->query($sql);
@@ -24,6 +23,7 @@ include("header.php");
 ?>
 <main>
     <?php
+    /* displays the house details in the same way as the home page. */
     $obj = $result->fetch_object();
     $s = "SELECT * FROM House_image where(house_id = $obj->house_id)";
     $res = $conn->query($s);
@@ -49,17 +49,19 @@ include("header.php");
     echo "<li>$obj->city, $obj->country</li>";
     echo "</ul>";
 
-
     $errMsg = "";//store error messages
-
+    /* an array for storing input variables, so they persist after an input error */
     $display = array(
         'checkIn' => '',
         'checkOut' => '',
         'numPeople' => '',
     );
-
+    /* method takes user information about a booking and checks if its valid(mostly)
+     * and pushes it to the database.*/
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["book"])) {
+            /* checks if the user is logged in, otherwise they can't book and will be
+             * redirected to the createAccount page */
             if(!isset($_SESSION['authenticatedUser'])){
                 header('Location:' . 'createAccount.php');
                 exit;
@@ -86,7 +88,7 @@ include("header.php");
                 header('Location:' . 'home.php');
                 exit;
             }
-
+            /* displays all the input values if incorrect data is entered for quicker fixes to invalid data */
             foreach ($_POST as $key => $value) {
                 if (isset($display[$key])) {
                     $display[$key] = htmlspecialchars($value);

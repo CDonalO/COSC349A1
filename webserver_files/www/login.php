@@ -1,10 +1,10 @@
 <?php
-$currentPage = basename($_SERVER['PHP_SELF']);
+//set up variables to be used when connecting to the database
 $servername = "192.168.12.42";
 $username = "adminprivilege";
 $password = "password1239";
 $dbname = "skybnb";
-
+/* connect to the database */
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
@@ -22,7 +22,7 @@ $display = array(
     'loginPassword' => '',
 
 );
-
+/* compares user input login data with existing users in the database to authenticate the user */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['loginUser'];
     $password = $_POST['loginPassword'];
