@@ -26,12 +26,17 @@ include("header.php");
         /* takes user input and partially validates it and creates and pushes a new user to the database */
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["create"])) {
+                $fname = $_POST["fName"];
+                $lname = $_POST["lName"];
+                $email = $_POST["Email"];
+                $s = "SELECT * FROM Users where(email = '$email')";
+                $res = $conn->query($s);
+                $o = $res->fetch_object();
                 if ($_POST["Password1"] != $_POST["Password2"]) {
                     $errMsg .= "<p class='err'>Please ensure both passwords match.</p>";
+                } else if($res->num_rows != 0){
+                    $errMsg .= "<p class='err'>Email address already in use.</p>";
                 } else {
-                    $fname = $_POST["fName"];
-                    $lname = $_POST["lName"];
-                    $email = $_POST["Email"];
                     $password = $_POST["Password1"];
                     $sql = "INSERT INTO Users (fname,lname,email,pass_word,is_admin) VALUES('$fname','$lname','$email','$password',false)";
                     $result = $conn->query($sql);
