@@ -12,7 +12,7 @@ How to run:
 - https://www.vagrantup.com/downloads 
 - https://www.virtualbox.org/wiki/Downloads
 - git clone the repository
-- open a terminal and navigate to the folder containing the repository
+- open a terminal and navigate to the folder COSC349A1 which contains the repository
 - run "vagrant destroy" to make sure no other vms are running
 - run "vagrant up" to build and run the application
 - go to http://127.0.0.1:8080/home.php to access the user site
