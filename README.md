@@ -17,3 +17,4 @@ How to run:
 - run "vagrant up" to build and run the application
 - go to http://127.0.0.1:8080/home.php to access the user site
 - go to http://127.0.0.1:8081/index.php to access the admin site
+- admin login: Email="admin@cooladmin.com" Password="admin"
