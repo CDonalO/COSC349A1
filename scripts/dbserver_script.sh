@@ -1,4 +1,4 @@
-#apt-get update
+apt-get update
 
 export MYSQL_PWD='Quack1nce4^'
 echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections 
