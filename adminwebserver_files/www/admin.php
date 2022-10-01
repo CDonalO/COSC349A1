@@ -5,7 +5,7 @@ if ($_SESSION["admin"] != true){
     exit();
 }
 
-$servername = "192.168.12.42";
+$servername = "cosc349-test-db.cj61kamwxd67.us-east-1.rds.amazonaws.com";
 $username = "adminprivilege";
 $password = "password1239";
 $dbname = "skybnb";
