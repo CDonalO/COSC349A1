@@ -26,6 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     } elseif (isset($_POST["delete"])){
         $delete_ids = json_decode($_COOKIE["delete"]);
         foreach ($delete_ids as $del_id) {
+			$sqlj = "DELETE FROM `House_image` where `house_id` = '$del_id'";
+			$conn->query($sqlj);
             $sqlb = "DELETE FROM `Booking` where `house_id` = '$del_id'";
             $conn->query($sqlb);
             $sqlh = "DELETE FROM `Houses` where `house_id` = '$del_id'";
