@@ -1,3 +1,7 @@
+CREATE DATABASE skybnb;
+CREATE USER 'adminprivilege'@'%' IDENTIFIED BY 'password1239';
+GRANT ALL PRIVILEGES ON skybnb.* TO 'adminprivilege'@'%'
+USE skybnb;
 CREATE TABLE Houses (
 
   house_id int(255) AUTO_INCREMENT,
