@@ -25,10 +25,12 @@ We have two EC2 instances that host our webservers as well as an RDS database an
 
 How to run on the cloud:
 - You will need an AWS account to set up the environment for this application.
+- Create an identity with the aws SES service just using your email and verify it.
 - Create security group to use
-- Create two EC2 instances on the AWS cloud
+- Create two EC2 instances on the AWS cloud running ubuntu
 - Add inbound rules that allow for http, https, ssh, mysql/aurora
 - Create RDS MySQL database and use MySQL Workbench or equivilant to cofigure it using sql from setup-database-ec2 text file.
 - ssh into EC2 instances and run commands in the associated web server script file to setup webservers
+- for the non admin ec2 instance you will need to set Access Key ID and Secret Access Key in the file /.aws/credentials you can find these in your aws account information. You will also need to change the sender email in /var/www/html/book.php to the email you setup earlier and may need to change the region
 - change to /var/www/html/ directory
 - update database connection information on php pages with the relevant endpoint
