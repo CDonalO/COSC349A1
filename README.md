@@ -1,4 +1,4 @@
-# COSC349A1
+# COSC349A2
 Assignment 1 and 2 for cosc349
 By Cordell O'Leary and Jacob Rowe
 
