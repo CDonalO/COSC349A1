@@ -1,5 +1,5 @@
 <?php
-require '/home/vagrant/vendor/autoload.php';
+require '/home/ubuntu/vendor/autoload.php';
 
 use Aws\Ses\SesClient;
 use Aws\Exception\AwsException;
