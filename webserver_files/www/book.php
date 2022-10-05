@@ -141,8 +141,8 @@ include("header.php");
                     echo "\n";
                 }
 
-//                header('Location:' . 'home.php');
-//                exit;
+                header('Location:' . 'home.php');
+                exit;
             }
             /* displays all the input values if incorrect data is entered for quicker fixes to invalid data */
             foreach ($_POST as $key => $value) {
