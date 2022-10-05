@@ -1,5 +1,5 @@
 # COSC349A1
-Assignment 1 for cosc349
+Assignment 1 and 2 for cosc349
 By Cordell O'Leary and Jacob Rowe
 
 Vagrant Version Application design:
@@ -20,7 +20,7 @@ How to run old vagrant version:
 - admin login: Email="admin@cooladmin.com" Password="admin"
 
 Cloud based version Application design:
-We have two EC2 instances that host our webservers as well as an RDS database and and SES email service. The two EC2 instances both interact with database, but only the instance with the user site interacts with the SES service. The sites and database still have the same functions as with the vagrant version.
+We have two EC2 instances that host our webservers as well as an RDS database and and SES email service. The two EC2 instances both interact with database, but only the instance with the user site interacts with the SES service. The EC2 instances don't interact with eachother to maintain the separation between users and admins. The sites and database still have the same functions as with the vagrant versions apart from an SES email notification being sent to the user's email address on a successful booking. 
 
 
 How to run on the cloud:
@@ -32,4 +32,3 @@ How to run on the cloud:
 - ssh into EC2 instances and run commands in the associated web server script file to setup webservers
 - change to /var/www/html/ directory
 - update database connection information on php pages with the relevant endpoint
-- 
