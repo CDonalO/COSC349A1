@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $a = $result->fetch_object();
         $_SESSION['authenticatedUserId'] = $a->users_id;
         $_SESSION['authenticatedUser'] = $a->fname;
+        $_SESSION['authenticatedUserEmail'] = $a->email;
         header('Location:' . 'home.php');
         exit;
     }

@@ -1,4 +1,9 @@
 <?php
+require '/home/vagrant/vendor/autoload.php';
+
+use Aws\Ses\SesClient;
+use Aws\Exception\AwsException;
+
 if (session_id() === "") {
     session_start();
 }
@@ -17,6 +22,22 @@ if ($conn->connect_error) {
 $id = $_SESSION["houseId"];
 $sql = "SELECT * FROM `Houses` where `house_id` = '$id'";
 $result = $conn->query($sql);
+
+$SesClient = new SesClient([
+    'profile' => 'default',
+    'version' => '2010-12-01',
+    'region'  => 'us-east-1'
+]);
+$sender_email = 'cordelloleary@gmail.com';
+$subject = 'Booking for skybnb confirmed';
+$char_set = 'UTF-8';
+$plaintext_body = 'Booking for Skybnb confirmed' ;
+
+
+
+
+
+
 
 include("header.php");
 
@@ -85,8 +106,43 @@ include("header.php");
                 $dres = $conn->query($d);
                 $abc = $dres->fetch_object();
                 $ab = $dres->fetch_object();
-                header('Location:' . 'home.php');
-                exit;
+
+                $html_body = "<p>Booking for house id $obj->house_id $num_people people for $num_days days. Date booked for $arriveDate</p>";
+                $recipient_emails = [$_SESSION["authenticatedUserEmail"]];
+                try {
+                    $result = $SesClient->sendEmail([
+                        'Destination' => [
+                            'ToAddresses' => $recipient_emails,
+                        ],
+                        'ReplyToAddresses' => [$sender_email],
+                        'Source' => $sender_email,
+                        'Message' => [
+                            'Body' => [
+                                'Html' => [
+                                    'Charset' => $char_set,
+                                    'Data' => $html_body,
+                                ],
+                                'Text' => [
+                                    'Charset' => $char_set,
+                                    'Data' => $plaintext_body,
+                                ],
+                            ],
+                            'Subject' => [
+                                'Charset' => $char_set,
+                                'Data' => $subject,
+                            ],
+                        ],
+                    ]);
+                    $messageId = $result['MessageId'];
+                } catch (AwsException $e) {
+                    // output error message if fails
+                    echo $e->getMessage();
+                    echo("The email was not sent. Error message: ".$e->getAwsErrorMessage()."\n");
+                    echo "\n";
+                }
+
+//                header('Location:' . 'home.php');
+//                exit;
             }
             /* displays all the input values if incorrect data is entered for quicker fixes to invalid data */
             foreach ($_POST as $key => $value) {

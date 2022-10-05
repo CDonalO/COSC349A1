@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
 	webserver.vm.synced_folder "webserver_files", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
   end
   
-    config.vm.define "adminwebserver" do |adminwebserver|
+  config.vm.define "adminwebserver" do |adminwebserver|
  
 	adminwebserver.vm.hostname = "webserver"
 	
@@ -36,10 +36,10 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "dbserver" do |dbserver|
   
-  dbserver.vm.hostname = "dbserver"
-  dbserver.vm.provision "shell", path: "scripts/dbserver_script.sh"
-  dbserver.vm.network "private_network", ip: "192.168.12.42"
-  dbserver.vm.synced_folder "dbserver_files", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
+	dbserver.vm.hostname = "dbserver"
+	dbserver.vm.provision "shell", path: "scripts/dbserver_script.sh"
+	dbserver.vm.network "private_network", ip: "192.168.12.42"
+	dbserver.vm.synced_folder "dbserver_files", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
   end
 
 
