@@ -65,7 +65,7 @@ function formatDate($str){
                     echo "<li>" . "Guests: " . $booking["number_of_people"] . "</li>";
                     echo "<li>" . "Booked by: " .$booking["fname"] ." " .$booking["lname"]."</li>";
                     echo "<li>" . "Email: " . $booking["email"] . "</li>";
-                    echo "<li>" . "Delete: "."<input type='checkbox' onclick='addHouseToCookie(".$row["house_id"].',"bdelete"'.")'>"."</li>";
+                    echo "<li>" . "Delete: "."<input type='checkbox' onclick='addHouseToCookie(".$booking["booking_id"].',"bdelete"'.")'>"."</li>";
                     echo "</ul>";
                 }
                 echo "</ul>";
