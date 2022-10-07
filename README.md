@@ -28,7 +28,7 @@ How to run on the cloud:
 - Create an identity with the aws SES service just using your email and verify it.
 - Create security group to use
 - Create two EC2 instances on the AWS cloud running ubuntu
-- Add inbound rules that allow for http, https, ssh, mysql/aurora
+- Add inbound rules that allow for http, ssh, mysql/aurora into security group
 - Create RDS MySQL database and use MySQL Workbench or equivilant to cofigure it using sql from setup-database-ec2 text file.
 - ssh into EC2 instances and run script in the associated web server script file to setup webservers (make sure it is run in sudo and the script is given permissions with sudo chmod +x scriptname)
 - for the non admin ec2 instance you will need to set Access Key ID and Secret Access Key in the file /.aws/credentials you can find these in your aws account information. You will also need to change the sender email in /var/www/html/book.php to the email you setup earlier and may need to change the region
